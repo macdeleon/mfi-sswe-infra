@@ -59,7 +59,9 @@ resource "aws_route" "workload_interfacing_to_tgw" {
   transit_gateway_id = module.tgw.tgw_id
 }
 
-# Endpoints to workload x
+## Endpoints to workload x
+# Creates an endpoint and an ALB in the workload VPC
+# - for this example, an S3 gateway interface is connected to the VPC for a peer connection
 module "endpoints_workload_x" {
   source = "./modules/endpoints"
   name = "workload-x"
